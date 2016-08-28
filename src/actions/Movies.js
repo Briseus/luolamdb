@@ -1,5 +1,5 @@
 import {clearResults} from "./Search"
-import {host} from "./../host"
+import {host} from "./../../host"
 
 export const allMovies = (movies) => {
     return {
