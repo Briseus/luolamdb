@@ -1,5 +1,10 @@
 var pgp = require('pg-promise')();
-var connection = "postgres://localhost:5432/luoladb";
+if(process.env.NODE_ENV === 'production') {
+    var connection = process.env.DATABASE_URL
+} else {
+    var connection = "postgres://localhost:5432/luoladb";
+}
+
 
 var db = pgp(connection);
 
