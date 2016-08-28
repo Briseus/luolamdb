@@ -3,7 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
-
+var port = process.env.PORT || 3000;
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -40,6 +40,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.listen(3000, function () {
+app.listen(port, function () {
   console.log('Example app listening on port 3000!');
 });
