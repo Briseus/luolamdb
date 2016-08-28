@@ -46,8 +46,6 @@ export function addNew(dispatch, movie) {
         var url = movie.poster.slice(4)
         url = "https" + url
         movie.poster = url
-        console.log(url)
-        console.log(movie.poster)
         dispatch(addMovie(movie))
         return fetch(host, {
                 method: 'POST',
