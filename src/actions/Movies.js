@@ -1,4 +1,5 @@
 import {clearResults} from "./Search"
+import {host} from "./../host"
 
 export const allMovies = (movies) => {
     return {
@@ -18,7 +19,7 @@ export function getAllMovies(dispatch) {
     return function(dispatch, getState) {
         let state = getState()
 
-        return fetch('http://localhost:3000/api/movies')
+        return fetch(host)
             .then((response) => {
                 if(response.ok) {
                     return response.json()
@@ -43,7 +44,7 @@ export function addNew(dispatch, movie) {
         dispatch(clearResults())
         movie.id = Date.now()
         dispatch(addMovie(movie))
-        return fetch('http://localhost:3000/api/movies', {
+        return fetch(host, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
