@@ -40,9 +40,14 @@ export function addNew(dispatch, movie) {
     return function (dispatch, getState) {
 
         let state = getState()
-        console.log(movie)
         dispatch(clearResults())
         movie.id = Date.now()
+        // save as https instead of http
+        var url = movie.poster.slice(4)
+        url = "https" + url
+        movie.poster = url
+        console.log(url)
+        console.log(movie.poster)
         dispatch(addMovie(movie))
         return fetch(host, {
                 method: 'POST',
