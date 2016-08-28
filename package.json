@@ -2,7 +2,7 @@
   "name": "luolamdb",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "webpack-watch": "webpack -w",
     "express-server": "node ./server",
