@@ -19,9 +19,7 @@ export function getAllMovies(dispatch) {
     return function(dispatch, getState) {
         let state = getState()
 
-        return fetch(host, {
-            mode: 'no-cors'
-        })
+        return fetch(host)
             .then((response) => {
                 if(response.ok) {
                     return response.json()
