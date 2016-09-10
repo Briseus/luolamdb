@@ -19,7 +19,9 @@ export function getAllMovies(dispatch) {
     return function(dispatch, getState) {
         let state = getState()
 
-        return fetch(host)
+        return fetch(host, {
+            mode: 'no-cors'
+        })
             .then((response) => {
                 if(response.ok) {
                     return response.json()
@@ -42,10 +44,6 @@ export function addNew(dispatch, movie) {
         let state = getState()
         dispatch(clearResults())
         movie.id = Date.now()
-        // save as https instead of http
-        var url = movie.poster.slice(4)
-        url = "https" + url
-        movie.poster = url
         dispatch(addMovie(movie))
         return fetch(host, {
                 method: 'POST',
